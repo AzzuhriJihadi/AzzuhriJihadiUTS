@@ -111,3 +111,118 @@ onMounted(() => {
     </div>
   </div>
 </template>
+
+<style>
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fffaf2;
+  color: #2e2e2e;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.card {
+  width: 100%;
+  max-width: 600px;
+  background: #fff3e0;
+  border-radius: 16px;
+  padding: 30px 25px;
+  box-shadow: 0 4px 16px rgba(255, 152, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  color: #ff6f00;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.toggle-show {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: #6d4c41;
+  gap: 8px;
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.task-table th,
+.task-table td {
+  border: 1px solid #ffcc80;
+  padding: 10px;
+  text-align: left;
+}
+
+.task-table th {
+  background-color: #ffe0b2;
+  color: #bf360c;
+}
+
+.done {
+  text-decoration: line-through;
+  color: #bdbdbd;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ffa726;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: #fff8e1;
+  color: #212529;
+}
+
+button {
+  padding: 10px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #ff9800;
+  color: white;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #fb8c00;
+}
+
+.cancel-btn {
+  background-color: #ffd54f;
+  color: #4e342e;
+}
+
+.delete-btn {
+  background-color: #ef5350;
+}
+</style>
