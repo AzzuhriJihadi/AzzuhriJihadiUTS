@@ -60,3 +60,54 @@ onMounted(() => {
   inputTugas.value?.focus();
 });
 </script>
+
+<template>
+  <div id="app">
+    <div class="container">
+      <div class="card">
+        <h2>🍽 Agenda Harian Usaha Rumah Makan</h2>
+
+        <label class="toggle-show">
+          <input type="checkbox" v-model="tampilkanSelesai" />
+          Tampilkan yang sudah selesai
+        </label>
+
+        <table class="task-table">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Tugas</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(tugas, indeks) in tugasTersaring" :key="indeks">
+              <td>{{ indeks + 1 }}</td>
+              <td :class="{ done: tugas.selesai }">{{ tugas.nama }}</td>
+              <td>
+                <input type="checkbox" v-model="tugas.selesai" />
+              </td>
+              <td>
+                <button @click="editTugas(indeks)">Edit</button>
+                <button class="delete-btn" @click="hapusTugas(indeks)">Hapus</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="input-group">
+          <input
+            ref="inputTugas"
+            v-model="tugasBaru"
+            type="text"
+            placeholder="Tambahkan agenda rumah makan"
+          />
+          <button v-if="sedangEdit" @click="perbaruiTugas">Perbarui</button>
+          <button v-else @click="tambahTugas">Tambah</button>
+          <button v-if="sedangEdit" class="cancel-btn" @click="batalEdit">Batal</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
